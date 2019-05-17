@@ -1,22 +1,9 @@
-bcrypt
-celery
 eventlet
 flask
-flask-mail
 flask-security
-flask-sqlalchemy
 flask-restful
-flask-graphql
 flask_cors
-graphene-sqlalchemy
 flasgger
 gunicorn
-kombu
-neo4j-driver==1.5.3
 numpy>=1.8.0
-pika
-psycopg2
-psycopg2-binary
-redis
 requests
--e git+https://github.com/Supervisor/supervisor@master#egg=supervisor

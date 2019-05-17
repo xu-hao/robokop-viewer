@@ -1,28 +1,5 @@
 version: "3"
 services:
-  postgres:
-    image: postgres
-    container_name: postgres
-    environment:
-      - POSTGRES_USER
-      - POSTGRES_DB
-      - POSTGRES_PASSWORD
-    ports:
-      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
-  graphql:
-    image: graphile/postgraphile
-    container_name: postgraphile
-    depends_on:
-      - postgres
-    environment:
-      - PGHOST=${POSTGRES_HOST}
-      - PGPORT=${POSTGRES_PORT}
-      - PGDATABASE=${POSTGRES_DB}
-      - PGUSER=${POSTGRES_USER}
-      - PGPASSWORD=${POSTGRES_PASSWORD}
-    ports:
-      - "${GRAPHQL_PORT}:${GRAPHQL_PORT}"
-    command: postgraphile --port ${GRAPHQL_PORT} --watch --cors --simple-collections only --disable-default-mutations
   manager:
     container_name: manager
     build:
@@ -42,9 +19,3 @@ services:
       - ../../../logs:/home/murphy/logs
       - ../../../shared:/home/murphy/shared
       - ../..:/home/murphy/robokop
-  pubmed_cache:
-    image: redis
-    container_name: pubmed_cache
-    ports:
-      - "${PUBMED_CACHE_PORT}:${PUBMED_CACHE_PORT}"
-    command: --port ${PUBMED_CACHE_PORT} --requirepass ${PUBMED_CACHE_PASSWORD}
