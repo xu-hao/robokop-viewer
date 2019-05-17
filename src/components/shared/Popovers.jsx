@@ -26,7 +26,7 @@ const questionGraphPopover = (
     <p><strong>Graph Panel Toolbar</strong><br />
       The [<FaUpload size={14} />], [<FaDownload size={14} />] and [<FaTrash size={14} />] buttons in the title bar
       of the Graph panel can be clicked to import, export (as a JSON file) or reset the current question.
-      The [<FaPaperPlaneO size={14} />] button submits the current question to ROBOKOP. The user can also pre-populate
+      The [<FaPaperPlaneO size={14} />] button submits the current question to ROBOKOP Viewer. The user can also pre-populate
       the question graph from a list of pre-existing question templates that are available through the drop-down menu
       in the graph panel toolbar.
     </p>
@@ -67,7 +67,7 @@ const edgePanelPopover = (
       and modified to either point to a different node, or be deleted.
     </p>
     <p>
-      An edge can optionally have a predicate (if supported by Robokop). Typing in the predicate name in the
+      An edge can optionally have a predicate (if supported by Robokop Viewer). Typing in the predicate name in the
       input field lets the user create a predicate tag for the node. <strong>Note:</strong> Currently, predicates
       are not validated by the UI. The user must ensure the validity of the predicates entered into the UI.
     </p>

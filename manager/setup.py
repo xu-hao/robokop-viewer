@@ -10,8 +10,6 @@ from flask_cors import CORS
 from flasgger import Swagger
 import werkzeug
 
-from manager import logging_config
-
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__, static_folder='../pack', template_folder='../templates')

@@ -1,8 +1,8 @@
 {
-  "name": "robokop",
-  "productName": "ROBOKOP",
+  "name": "robokop-viewer",
+  "productName": "ROBOKOP Viewer",
   "version": "0.0.1",
-  "description": "ROBOKOP - A user interface for biomedical knowledge graph construction and reasoning.",
+  "description": "ROBOKOP Viewer - A user interface for viewing knowledge graphs.",
   "author": "ROBOKOP Team",
   "license": "MIT",
   "devDependencies": {
@@ -84,6 +84,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ncats-gamma/robokop.git"
+    "url": "git://github.com/xu-hao/robokop-viewer.git"
   }
 }

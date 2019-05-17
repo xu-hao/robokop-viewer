@@ -60,7 +60,7 @@ class NodePanel extends React.Component {
 
   render() {
     const { store } = this.props.activePanel;
-    const ready = store.dataReady && store.conceptsReady && store.userReady;
+    const ready = store.dataReady;
     const { activePanel } = this.props;
     const { isValidType, curieEnabled } = activePanel;
     const dropDownObjList = activePanel.store.concepts.map(c => ({ text: entityNameDisplay(c), value: c }));

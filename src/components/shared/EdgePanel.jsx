@@ -60,7 +60,7 @@ class EdgePanel extends React.Component {
 
   render() {
     const { store } = this.props.activePanel;
-    const ready = store.dataReady && store.conceptsReady && store.userReady && store.predicatesReady;
+    const ready = store.dataReady;
     const { activePanel } = this.props;
     const validNodeSelectionList = activePanel.store.visibleNodePanels.map(panel => ({ id: panel.id, label: panel.panelName }));
     const { predicateList, disablePredicates } = activePanel;

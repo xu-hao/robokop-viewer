@@ -196,7 +196,6 @@ class MessageAnswersetPres extends React.Component {
             title="Answers List"
           >
             <AnswersetList
-              user={this.props.user} // Needed to parse feedback to know what is yours
               answers={this.props.answers}
               answersetFeedback={this.props.answersetFeedback}
               answerId={this.props.answerId} // Monitored for select by parameter or page load

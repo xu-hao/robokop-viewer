@@ -367,7 +367,6 @@ class AnswersetInteractive extends React.Component {
         </Col>
         <Col md={9} style={{ paddingLeft: '5px' }}>
           <AnswerExplorer
-            user={this.props.user}
             answer={answer}
             answerIndex={this.state.selectedSubGraphIndex}
             answerFeedback={answerFeedback}

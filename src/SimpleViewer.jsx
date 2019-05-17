@@ -36,16 +36,6 @@ class SimpleViewer extends React.Component {
   componentDidMount() {
     // makes the appropriate GET request from server.py,
     // uses the result to set this.state
-    this.appConfig.user(data => this.setState({
-      user: this.appConfig.ensureUser(data),
-      userReady: true,
-    }));
-    this.appConfig.concepts((data) => {
-      this.setState({
-        concepts: data,
-        conceptsReady: true,
-      });
-    });
 
     if (this.props.id) {
       // request the file
@@ -215,8 +205,6 @@ class SimpleViewer extends React.Component {
   renderBodyValid() {
     return (
       <MessageAnswersetPres
-        user={this.state.user}
-        concepts={this.state.concepts}
         message={this.state.message}
         omitHeader
       />
@@ -228,7 +216,6 @@ class SimpleViewer extends React.Component {
       <div>
         <Header
           config={this.props.config}
-          user={this.state.user}
         />
         <Grid>
           {!hasMessage && !isReading && !hasError && this.renderBodyUpload()}
@@ -241,7 +228,7 @@ class SimpleViewer extends React.Component {
     );
   }
   render() {
-    const ready = this.state.userReady && this.state.conceptsReady;
+    const ready = true;
     return (
       <div>
         {!ready && this.renderLoading()}

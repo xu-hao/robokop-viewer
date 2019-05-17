@@ -24,8 +24,6 @@ view_storage_dir = f"{os.environ['ROBOKOP_HOME']}/uploads/"
 if not os.path.exists(view_storage_dir):
     os.mkdir(view_storage_dir)
 
-template_dir = f"{os.environ['ROBOKOP_HOME']}/robokop/queries"
-
 output_formats = ['DENSE', 'MESSAGE', 'CSV', 'ANSWERS']
 
 def parse_args_output_format(req_args):

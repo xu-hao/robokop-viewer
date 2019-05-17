@@ -35,9 +35,8 @@ const config = {
   },
   // Add environmental dependent variables to config here.
   host: process.env.ROBOKOP_HOST,
-  port: process.env.MANAGER_PORT_UI,
+  port: process.env.MANAGER_PORT,
   protocol: process.env.ROBOKOP_PROTOCOL,
-  graphqlPort: process.env.GRAPHQL_PORT_UI, // With our NGINX setup we no longe require a seperate more for the graphql
 };
 
 const robokop = {

@@ -1,21 +1,17 @@
 version: "3"
 services:
   manager:
-    container_name: manager
+    container_name: viewer
     build:
-      context: .
+      context: ../..
+      dockerfile: deploy/manager/Dockerfile
     env_file:
-      - ../../../shared/robokop.env
+      - ../../shared/robokop.env
     environment:
       - ROBOKOP_HOME=/home/murphy
-      - CELERY_BROKER_URL=amqp://${BROKER_USER}:${BROKER_PASSWORD}@${BROKER_HOST}:${BROKER_PORT}/manager
-      - CELERY_RESULT_BACKEND=redis://:${RESULTS_PASSWORD}@${RESULTS_HOST}:${RESULTS_PORT}/${MANAGER_RESULTS_DB}
-      - SUPERVISOR_PORT=${MANAGER_SUPERVISOR_PORT}
-      - PYTHONPATH=/home/murphy/robokop
+      - PYTHONPATH=/home/murphy/robokop-viewer
     ports:
       - "${MANAGER_PORT}:${MANAGER_PORT}"
-      - "${MANAGER_SUPERVISOR_PORT}:${MANAGER_SUPERVISOR_PORT}"
     volumes:
-      - ../../../logs:/home/murphy/logs
-      - ../../../shared:/home/murphy/shared
-      - ../..:/home/murphy/robokop
+      - ../../logs:/home/murphy/logs
+      - ../../shared:/home/murphy/shared

@@ -13,7 +13,7 @@ class Header extends React.Component {
   }
 
   getPropsData() {
-    return { user: this.appConfig.ensureUser(this.props.user), status: this.props.status };
+    return { status: this.props.status };
   }
 
   getNotLoggedInFrag() {
@@ -23,19 +23,10 @@ class Header extends React.Component {
       </NavItem>
     );
   }
-  getLoggedInFrag(user) {
-    return (
-      <NavDropdown eventKey={4} title={user.username} id="basic-nav-dropdown">
-        <MenuItem eventKey={4.1} href={this.appConfig.urls.logout}>Log Out</MenuItem>
-      </NavDropdown>
-    );
-  }
 
   render() {
     const data = this.getPropsData();
 
-    const isAuth = data.user.is_authenticated;
-    const showNewQuestion = isAuth && this.appConfig.enableNewQuestions;
     const hasStatus = data.status && data.status.length > 0;
     const showApps = true;
 
@@ -50,20 +41,12 @@ class Header extends React.Component {
       >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">Robokop</a>
+            <a href="/">Robokop Viewer</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href={this.appConfig.urls.questions}>
-              Question Library
-            </NavItem>
-            {showNewQuestion &&
-            <NavItem eventKey={2} href={this.appConfig.urls.questionDesign}>
-              Ask a Question
-            </NavItem>
-            }
             {hasStatus &&
               <Navbar.Text>
                 {data.status}
@@ -71,24 +54,10 @@ class Header extends React.Component {
             }
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={0} href={this.appConfig.urls.help}>
-              Help
-            </NavItem>
             {showApps &&
             <NavDropdown eventKey={3} title="Apps" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1} href={this.appConfig.urls.search}>Search - <small>Find Identifiers for Biomedical Concepts</small></MenuItem>
-              <MenuItem eventKey={3.2} href={this.appConfig.urls.view}>Answer Set Explorer - <small>Use the Robokop UI with answer set files.</small></MenuItem>
-              <MenuItem eventKey={3.3} href={this.appConfig.urls.expand}>Simple Expand - <small>Use the Robokop Expand API.</small></MenuItem>
-              <MenuItem eventKey={3.4} href={this.appConfig.urls.enrich}>Simple Enriched - <small>Use the Robokop Enriched API.</small></MenuItem>
-              <MenuItem eventKey={3.5} href={this.appConfig.urls.similarity}>Simple Similarity - <small>Use the Robokop Similarity API.</small></MenuItem>
-              <MenuItem eventKey={3.6} href={this.appConfig.urls.synonymize}>Simple Synonymize - <small>Use the Robokop Synonymize API.</small></MenuItem>
+              <MenuItem eventKey={3.2} href={this.appConfig.urls.view}>Answer Set Explorer - <small>Use the Robokop Viewer UI with answer set files.</small></MenuItem>
             </NavDropdown>
-            }
-            {isAuth &&
-              this.getLoggedInFrag(data.user)
-            }
-            {!isAuth &&
-              this.getNotLoggedInFrag()
             }
           </Nav>
         </Navbar.Collapse>

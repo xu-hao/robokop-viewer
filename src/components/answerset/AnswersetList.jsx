@@ -175,7 +175,6 @@ class AnswersetList extends React.Component {
         </Col>
         <Col md={9} style={{ paddingLeft: '5px', marginTop: '10px' }}>
           <AnswerExplorer
-            user={this.props.user}
             answer={toJS(answer)}
             answerIndex={store.selectedSubGraphIndex}
             answerFeedback={answerFeedback}

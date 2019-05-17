@@ -43,7 +43,7 @@ class Answerset(db.Model):
         self.answers = []
         self.misc_info = None
         self.filename = None
-        self.creator = 'ROBOKOP'
+        self.creator = 'ROBOKOP Viewer'
         self.__idx = 0
 
         # apply json properties to existing attributes
@@ -67,7 +67,7 @@ class Answerset(db.Model):
                 warnings.warn("Keyword argument {} ignored.".format(key))
 
     def __str__(self):
-        return "<ROBOKOP Answer Set id={}>".format(self.id)
+        return "<ROBOKOP Viewer Answer Set id={}>".format(self.id)
 
     def to_json(self):
         keys = self.__mapper__._props.keys()+[k for k in self.__dict__.keys() if not k.startswith('_')]
@@ -181,7 +181,7 @@ class Answer(db.Model):
                 warnings.warn("Keyword argument {} ignored.".format(key))
 
     def __str__(self):
-        return "<ROBOKOP Answer id={}>".format(self.id)
+        return "<ROBOKOP Viewer Answer id={}>".format(self.id)
 
     def to_json(self):
         keys = [str(column).split('.')[-1] for column in self.__table__.columns]

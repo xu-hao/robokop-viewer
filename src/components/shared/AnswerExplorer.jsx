@@ -110,7 +110,6 @@ class AnswerExplorer extends React.Component {
             <Modal.Body>
               {modalIsFeedback &&
               <FeedbackExplorer
-                user={this.props.user}
                 answer={this.props.answer}
                 answerFeedback={this.props.answerFeedback}
                 enableSubmit={this.props.enableFeedbackSubmit}

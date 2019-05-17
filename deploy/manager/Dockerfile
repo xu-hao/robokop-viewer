@@ -26,26 +26,36 @@ ARG UID=1000
 ARG GID=1000
 RUN groupadd -g $GID murphy
 RUN useradd -m -u $UID -g $GID -s /bin/bash murphy
-WORKDIR /home/murphy
 
-## Get ROBOKOP software
-RUN git clone https://github.com/NCATS-Gamma/robokop.git
+WORKDIR /home/murphy/robokop-viewer
 
-WORKDIR /home/murphy/robokop
+COPY requirements.txt requirements.txt
 
 ## Install all requirements
 RUN pip install -r ./requirements.txt --src /usr/local/src
 
-## Set up the website
-# RUN npm install
-# RUN npm run webpackProd
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+RUN npm install
+
+## Get ROBOKOP software
+COPY src src
+COPY assets assets
+COPY shared ../shared
+COPY webpack.common.js webpack.common.js
+COPY webpack.dev.js webpack.dev.js
+COPY webpack.prod.js webpack.prod.js
+
+RUN npm run webpackProd
+
+COPY manager manager
+COPY templates templates
 
 WORKDIR /home/murphy
-RUN rm -r /home/murphy/robokop
 
 ## Finish up
 ENV HOME=/home/murphy
 ENV USER=murphy
 
-ENTRYPOINT ["./robokop/deploy/manager/startup.sh"]
-CMD ["supervisord", "-c", "./robokop/deploy/manager/supervisord.conf"]
+ENTRYPOINT ["python", "robokop-viewer/manager/server.py"]
