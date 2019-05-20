@@ -41,7 +41,7 @@ class Header extends React.Component {
       >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">Robokop Viewer</a>
+            <a href="/simple/view">Robokop Viewer</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
