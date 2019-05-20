@@ -8,6 +8,12 @@ from flask import render_template
 
 from manager.setup import app
 
+import manager.logging_config
+
+# set up all apis
+import manager.api.misc_api
+import manager.api.simple_api
+
 @app.route('/simple/view/')
 def viewer_blank():
     """Answerset Browser with upload capablitiy."""

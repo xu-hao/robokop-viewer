@@ -120,7 +120,7 @@ class AnswersetTableSubComponent extends React.Component {
   makeNodePairs(nodes, edges) {
     const axiosArray = [];
     const nodePairs = [];
-    const addrFun = (id1, id2) => `${config.protocol}://${config.host}:${config.port}/api/omnicorp/${id1}/${id2}`;
+    // const addrFun = (id1, id2) => `${config.protocol}://${config.host}:${config.port}/api/omnicorp/${id1}/${id2}`;
     for (let i = 0; i < nodes.length; i += 1) {
       if (!(('isSet' in nodes[i]) && nodes[i].isSet)) {
         for (let m = i + 1; m < nodes.length; m += 1) {
@@ -128,8 +128,8 @@ class AnswersetTableSubComponent extends React.Component {
             // Both i and m are not from a set.
 
             // builds the api call address and pushes it into an array for the promises
-            const addr = addrFun(nodes[i].id, nodes[m].id);
-            axiosArray.push(axios.get(addr));
+            // const addr = addrFun(nodes[i].id, nodes[m].id);
+            // axiosArray.push(axios.get(addr));
             // putting the node pairs as an array into an array for when we make the edges
             nodePairs.push([nodes[i].id, nodes[m].id]);
           }
@@ -143,8 +143,8 @@ class AnswersetTableSubComponent extends React.Component {
         const existingPair = nodePairs.find(p => ((p[0] === e.source_id) && (p[1] === e.target_id)) || ((p[1] === e.source_id) && (p[0] === e.target_id)));
         if (!existingPair) {
           // We need to add this pair
-          const addr = addrFun(e.source_id, e.target_id);
-          axiosArray.push(axios.get(addr));
+          // const addr = addrFun(e.source_id, e.target_id);
+          // axiosArray.push(axios.get(addr));
           nodePairs.push([e.source_id, e.target_id]);
         }
       }

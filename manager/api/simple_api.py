@@ -16,7 +16,6 @@ from flask_security import auth_required
 from flask_restful import Resource
 
 from manager.setup import api
-import manager.api.simple_api
 
 logger = logging.getLogger(__name__)
 

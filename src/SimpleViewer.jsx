@@ -64,6 +64,8 @@ class SimpleViewer extends React.Component {
     }
   }
   parseMessage(object) {
+    object = object["return value"] || object
+
     const message = _.cloneDeep(object);
 
     const hasMessage = _.isObject(message);
