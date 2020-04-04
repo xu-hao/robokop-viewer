@@ -47,7 +47,7 @@
     "jquery": "^3.2.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.4",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "mobx": "^4.4.2",
     "mobx-react": "^5.2.8",
     "mobx-state-tree": "^3.3.0",
